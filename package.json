@@ -1,0 +1,25 @@
+{
+  "name": "keep",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.module.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devs-workshops/keep.git"
+  },
+  "author": "Denis Gorbunov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devs-workshops/keep/issues"
+  },
+  "homepage": "https://github.com/devs-workshops/keep",
+  "devDependencies": {
+    "bower": "^1.7.2",
+    "gulp": "^3.9.0",
+    "gulp-angular-templatecache": "^1.8.0",
+    "gulp-concat": "^2.6.0"
+  }
+}

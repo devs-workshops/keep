@@ -1,0 +1,23 @@
+{
+  "name": "keep",
+  "description": "",
+  "main": "app.module.js",
+  "authors": [
+    "Denis Gorbunov"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Materialize": "materialize#~0.97.5",
+    "angular": "~1.4.8"
+  }
+}
