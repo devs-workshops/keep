@@ -4,6 +4,9 @@
 		{
 			return {
 				templateUrl: "new-note.html",
+				scope: {
+					notes: '='
+				},
 				controller: NewNoteController
 			};
 
@@ -21,9 +24,12 @@
 
 				function saveNote()
 				{
-					if ($scope.blankNote && ($scope.blankNote.title.length > 0 || $scope.blankNote.text.length > 0))
+					if ($scope.blankNote && ($scope.blankNote.title.length > 0 || $scope.blankNote.content.length > 0))
 					{
-						NoteService.saveNote($scope.blankNote);
+						NoteService.saveNote($scope.blankNote).then(function(savedNote)
+						{
+							notes.unshift(savedNote);
+						});
 					}
 
 					$scope.blankNote = null;
