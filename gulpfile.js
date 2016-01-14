@@ -20,8 +20,8 @@ gulp.task('concat:html', function() {
 });
 
 gulp.task('watch', function() {
-	gulp.watch('*.js', ['concat:js']);
-	gulp.watch('*.html', ['concat:html']);
+	gulp.watch('./src/*.js', ['concat:js']);
+	gulp.watch('./src/*.html', ['concat:html']);
 });
 
 gulp.task('default', ['concat', 'watch']);
