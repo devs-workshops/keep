@@ -1,1 +1,3 @@
 # keep
+
+npm install
