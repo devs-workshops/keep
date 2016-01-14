@@ -4,9 +4,6 @@
 		{
 			return {
 				templateUrl: "new-note.html",
-				scope: {
-					notes: "="
-				},
 				controller: NewNoteController
 			};
 
