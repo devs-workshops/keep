@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use AppBundle\Entity\Note;
 use Symfony\Component\HttpFoundation\Request;
 
+
 class NoteController extends Controller
 {
     /**
@@ -22,15 +23,29 @@ class NoteController extends Controller
         /** @var NoteRepository $noteRepository */
         $noteRepository = $this->getDoctrine()->getManager()->getRepository(Note::class);
         $notes = $noteRepository->findAll();
-        $notesDto = $this->get('serializer')->normalize($notes);
-        return new JsonResponse($notesDto);
+        $notesNormalized = $this->get('serializer')->normalize($notes);
+        return new JsonResponse($notesNormalized);
     }
+
     /**
      * @Route("/note", name="note_create")
      * @Method("POST")
      */
     public function createAction(Request $request)
     {
+        $payload = json_decode($request->getContent(),true);
+
+        $note = new Note();
+        $note->setTitle($payload['title']);
+        $note->setContent($payload['content']);
+
+        /** @var EntityManager $em */
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($note);
+        $em->flush();
+
+        $noteNormalized = $this->get('serializer')->normalize($note);
+        return new JsonResponse($noteNormalized);
     }
     /**
      * @Route("/note/{id}", name="note_update")
@@ -38,6 +53,18 @@ class NoteController extends Controller
      */
     public function updateAction(Request $request, Note $note)
     {
+        $payload = json_decode($request->getContent(),true);
+
+        $note->setTitle($payload['title']);
+        $note->setContent($payload['content']);
+
+        /** @var EntityManager $em */
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($note);
+        $em->flush();
+
+        $noteNormalized = $this->get('serializer')->normalize($note);
+        return new JsonResponse($noteNormalized);
     }
     /**
      * @Route("/note/{id}", name="note_delete")
@@ -45,5 +72,12 @@ class NoteController extends Controller
      */
     public function deleteAction(Note $note)
     {
+        /** @var EntityManager $em */
+        $em = $this->getDoctrine()->getManager();
+
+        $em->remove($note);
+        $em->flush();
+
+        return new JsonResponse([]);
     }
 }
