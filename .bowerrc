@@ -1,0 +1,13 @@
+{
+	"directory": "web/bower_components",
+	"analytics": false,
+	"timeout": 120000,
+	"registry": {
+			"search": [
+			  "https://bower.herokuapp.com"
+			]
+		},
+	"strictSSL": false,
+	"proxy":"http://localhost:3128",
+	"https-proxy":"http://localhost:3128"
+}
