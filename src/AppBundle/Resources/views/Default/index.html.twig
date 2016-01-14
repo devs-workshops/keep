@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ asset('bower_components/Materialize/dist/css/materialize.min.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('bower_components/materialize/dist/js/materialize.min.js') }}"></script>
+    <script src="{{ asset('bower_components/angular/angular.min.js') }}"></script>
+
+    <script src="{{ asset('assets/app.js') }}"></script>
+    <script src="{{ asset('assets/templates.js') }}"></script>
+
+{% endblock %}
+
+{% block body %}
+    <div ng-app="app" class="grey lighten-3" ng-controller="IndexController">
+        <navigation></navigation>
+
+        <div class="content">
+            <div class="row">
+                <div class="col s4 offset-s4">
+                    <new-note notes=notes></new-note>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s4" ng-repeat="note in notes">
+                    <note></note>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
