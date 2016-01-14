@@ -28,7 +28,7 @@
 					{
 						NoteService.saveNote($scope.blankNote).then(function(savedNote)
 						{
-							notes.unshift(savedNote);
+							$scope.notes.unshift(savedNote);
 						});
 					}
 
