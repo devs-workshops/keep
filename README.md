@@ -2,7 +2,6 @@
 
 To set up the project
 - run: composer install
-- run: composer update
 - run: php app/console doctrine:database:create
 - run: php app/console doctrine:migrations:migrate
 - run: npm install
