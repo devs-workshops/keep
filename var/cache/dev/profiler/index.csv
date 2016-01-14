@@ -1,8 +1,0 @@
-fcd8ec,::1,GET,http://localhost/keep/web/app_dev.php/,1452793879,60bd9f,200
-60bd9f,::1,GET,http://localhost/keep/web/app_dev.php/,1452793879,,500
-b4327e,::1,GET,http://localhost/keep/web/app_dev.php/,1452793909,738709,200
-738709,::1,GET,http://localhost/keep/web/app_dev.php/,1452793909,,500
-5c5668,::1,GET,http://localhost/keep/web/app_dev.php/,1452793975,,200
-bd35b5,::1,GET,http://localhost/keep/web/app_dev.php/note,1452793981,5d8f52,200
-5d8f52,::1,GET,http://localhost/keep/web/app_dev.php/note,1452793981,,500
-77345e,::1,GET,http://localhost/keep/web/app_dev.php/note,1452794149,,200

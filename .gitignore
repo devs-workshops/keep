@@ -2,3 +2,5 @@
 /web/bower_components/
 /vendor/
 /web/assets/
+/.idea
+/var
