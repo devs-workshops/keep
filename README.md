@@ -9,3 +9,5 @@ To set up the project
 - run: bower install
 - run: npm install -g gulp (if you don't have one)
 - run: gulp concat
+
+http://slides.com/simonradionov/sf_workshop_p2#/
