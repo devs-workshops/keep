@@ -33,11 +33,9 @@ class NoteController extends Controller
      */
     public function createAction(Request $request)
     {
-        $payload = json_decode($request->getContent(),true);
-
         $note = new Note();
-        $note->setTitle($payload['title']);
-        $note->setContent($payload['content']);
+        $note->setTitle($request->get('title'));
+        $note->setContent($request->get('content'));
 
         /** @var EntityManager $em */
         $em = $this->getDoctrine()->getManager();
