@@ -21,7 +21,7 @@ class NoteController extends Controller
     public function getAllAction()
     {
         /** @var NoteRepository $noteRepository */
-        $noteRepository = $this->getDoctrine()->getManager()->getRepository(Note::class);
+        $noteRepository = $this->get('repository.note');
         $notes = $noteRepository->findAll();
         $notesNormalized = $this->get('serializer')->normalize($notes);
         return new JsonResponse($notesNormalized);
