@@ -21,7 +21,7 @@ class NoteController extends Controller
     public function getAllAction()
     {
         /** @var NoteRepository $noteRepository */
-        $noteRepository = $this->get('repository.note');
+        $noteRepository = $this->getDoctrine()->getManager()->getRepository(Note::class);
         $notes = $noteRepository->findAll();
         $notesNormalized = $this->get('serializer')->normalize($notes);
         return new JsonResponse($notesNormalized);
@@ -33,9 +33,11 @@ class NoteController extends Controller
      */
     public function createAction(Request $request)
     {
+        $payload = json_decode($request->getContent(),true);
+
         $note = new Note();
-        $note->setTitle($request->get('title'));
-        $note->setContent($request->get('content'));
+        $note->setTitle($payload['title']);
+        $note->setContent($payload['content']);
 
         /** @var EntityManager $em */
         $em = $this->getDoctrine()->getManager();

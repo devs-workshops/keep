@@ -4,7 +4,6 @@ parameters:
 #    parameter_name: value
 
 services:
-  kernel.listener.onrequest:
-    class: AppBundle\EventListener\RequestListener
-    tags:
-      - { name: kernel.event_listener, event: kernel.request }
+#    service_name:
+#        class: AppBundle\Directory\ClassName
+#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
