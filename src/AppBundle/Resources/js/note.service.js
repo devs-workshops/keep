@@ -5,6 +5,7 @@
 			return {
 				getNotes: getNotes,
 				saveNote: saveNote,
+				deleteNote: deleteNote,
 				createBlankNote: createBlankNote
 			};
 
@@ -24,16 +25,37 @@
 
 			function saveNote(note)
 			{
-				return $http.post('/note', note)
-					.then(function(response)
-					{
-						return response.data;
-					})
-					.catch(function(error)
-					{
-						alert(getErrorMessage(error));
-					})
-				;
+				if (note.id)
+				{
+					return $http.put('/note/' + note.id, note)
+						.then(function(response)
+						{
+							return response.data;
+						})
+						.catch(function(error)
+						{
+							alert(getErrorMessage(error));
+						})
+					;
+				}
+				else
+				{
+					return $http.post('/note', note)
+						.then(function(response)
+						{
+							return response.data;
+						})
+						.catch(function(error)
+						{
+							alert(getErrorMessage(error));
+						})
+					;
+				}
+			}
+
+			function deleteNote(note)
+			{
+				return $http.delete('/note/' + note.id);
 			}
 
 			function createBlankNote()
