@@ -11,3 +11,5 @@ To set up the project
 - run: gulp concat
 
 http://slides.com/simonradionov/sf_workshop_p2#/
+
+Angular Style Guide: https://github.com/johnpapa/angular-styleguide

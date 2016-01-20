@@ -1,0 +1,8 @@
+<div ng-hide="NoteNewCtrl.blankNote" class="card">
+	<div class="card-content" ng-click="NoteNewCtrl.createNote()" style="cursor: pointer;">
+		Add note
+	</div>
+</div>
+<div ng-if="NoteNewCtrl.blankNote">
+	<div note-edit="NoteNewCtrl.blankNote" on-save="NoteNewCtrl.onSaved"></div>
+</div>
