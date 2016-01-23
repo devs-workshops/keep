@@ -10,6 +10,6 @@ To set up the project
 - run: npm install -g gulp (if you don't have one)
 - run: gulp concat
 
-http://slides.com/simonradionov/sf_workshop_p2#/
+[Slides](https://github.com/devs-workshops/keep/blob/master/slides/README.md)
 
 Angular Style Guide: https://github.com/johnpapa/angular-styleguide
