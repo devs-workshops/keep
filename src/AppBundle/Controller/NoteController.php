@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Repository\Note\LabelRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -33,15 +34,15 @@ class NoteController extends Controller
      */
     public function createAction(Request $request)
     {
-        $note = new Note();
-        $note->setTitle($request->get('title'));
-        $note->setContent($request->get('content'));
-        $note->setColor($request->get('color'));
+        $labelsIds = array_column($request->get('labels'), 'id');
+        /** @var LabelRepository $labelRepository */
+        $labelRepository = $this->get('repository.note.label');
+        /** @var Note\Label[] $labels */
+        $labels = $labelRepository->findBy(['id' => $labelsIds]);
 
-        /** @var EntityManager $em */
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($note);
-        $em->flush();
+        /* @var NoteRepository $noteRepository */
+        $noteRepository = $this->get('repository.note');
+        $note = $noteRepository->createFromParameters($request->request, $labels);
 
         $noteNormalized = $this->get('serializer')->normalize($note);
         return new JsonResponse($noteNormalized);
@@ -52,14 +53,15 @@ class NoteController extends Controller
      */
     public function updateAction(Request $request, Note $note)
     {
-        $note->setTitle($request->get('title'));
-        $note->setContent($request->get('content'));
-        $note->setColor($request->get('color'));
+        $labelsIds = array_column($request->get('labels'), 'id');
+        /** @var LabelRepository $labelRepository */
+        $labelRepository = $this->get('repository.note.label');
+        /** @var Note\Label[] $labels */
+        $labels = $labelRepository->findBy(['id' => $labelsIds]);
 
-        /** @var EntityManager $em */
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($note);
-        $em->flush();
+        /* @var NoteRepository $noteRepository */
+        $noteRepository = $this->get('repository.note');
+        $note = $noteRepository->updateFromParameters($note, $request->request, $labels);
 
         $noteNormalized = $this->get('serializer')->normalize($note);
         return new JsonResponse($noteNormalized);
