@@ -4,3 +4,8 @@ services:
     factory: ["@doctrine.orm.default_entity_manager", getRepository]
     arguments:
       - AppBundle:Note
+  repository.note.label:
+    class: Doctrine\ORM\EntityRepository
+    factory: ["@doctrine.orm.default_entity_manager", getRepository]
+    arguments:
+      - AppBundle:Note\Label
