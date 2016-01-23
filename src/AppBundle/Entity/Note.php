@@ -42,6 +42,15 @@ class Note
      */
     private $color;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Note\Label")
+     * @ORM\JoinTable(name="notes_swb_labels",
+     *      joinColumns={@ORM\JoinColumn(name="note_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="label_id", referencedColumnName="id")}
+     *      )
+     */
+    private $labels;
+
 
     /**
      * Get id
@@ -123,5 +132,46 @@ class Note
     public function getColor()
     {
         return $this->color;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->labels = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add label
+     *
+     * @param \AppBundle\Entity\Note\Label $label
+     *
+     * @return Note
+     */
+    public function addLabel(\AppBundle\Entity\Note\Label $label)
+    {
+        $this->labels[] = $label;
+
+        return $this;
+    }
+
+    /**
+     * Remove label
+     *
+     * @param \AppBundle\Entity\Note\Label $label
+     */
+    public function removeLabel(\AppBundle\Entity\Note\Label $label)
+    {
+        $this->labels->removeElement($label);
+    }
+
+    /**
+     * Get labels
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLabels()
+    {
+        return $this->labels;
     }
 }

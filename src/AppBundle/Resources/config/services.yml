@@ -1,6 +1,6 @@
 services:
   repository.note:
-    class: Doctrine\ORM\EntityRepository
+    class: AppBundle\Repository\NoteRepository
     factory: ["@doctrine.orm.default_entity_manager", getRepository]
     arguments:
       - AppBundle:Note
