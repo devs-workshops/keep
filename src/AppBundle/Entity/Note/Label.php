@@ -63,4 +63,3 @@ class Label
         return $this->name;
     }
 }
-

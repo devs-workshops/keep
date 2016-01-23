@@ -22,7 +22,7 @@ class NoteController extends Controller
     {
         /** @var NoteRepository $noteRepository */
         $noteRepository = $this->get('repository.note');
-        $notes = $noteRepository->findAll();
+        $notes = $noteRepository->findBy(array(), array('id'=>'DESC'));
         $notesNormalized = $this->get('serializer')->normalize($notes);
         return new JsonResponse($notesNormalized);
     }
@@ -36,6 +36,7 @@ class NoteController extends Controller
         $note = new Note();
         $note->setTitle($request->get('title'));
         $note->setContent($request->get('content'));
+        $note->setColor($request->get('color'));
 
         /** @var EntityManager $em */
         $em = $this->getDoctrine()->getManager();
@@ -51,10 +52,9 @@ class NoteController extends Controller
      */
     public function updateAction(Request $request, Note $note)
     {
-        $payload = json_decode($request->getContent(),true);
-
-        $note->setTitle($payload['title']);
-        $note->setContent($payload['content']);
+        $note->setTitle($request->get('title'));
+        $note->setContent($request->get('content'));
+        $note->setColor($request->get('color'));
 
         /** @var EntityManager $em */
         $em = $this->getDoctrine()->getManager();
