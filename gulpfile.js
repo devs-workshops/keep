@@ -2,8 +2,8 @@ var gulp = require('gulp');
 var concat = require('gulp-concat');
 var templateCache = require('gulp-angular-templatecache');
 
-var JS_SOURCE_PATH = 'src/AppBundle/Resources/js/';
-var CSS_SOURCE_PATH = 'src/AppBundle/Resources/css/';
+var JS_SOURCE_PATH = 'src/AppBundle/Resources/js/**/';
+var CSS_SOURCE_PATH = 'src/AppBundle/Resources/css/**/';
 var DESTINATION = 'web/assets/';
 
 gulp.task('concat:js', function () {
