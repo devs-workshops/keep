@@ -1,0 +1,22 @@
+<div class="labels-list card">
+	<div class="card-content">
+		<div>Label note</div>
+		<div class="label-search">
+			<input placeholder="Enter label name" ng-model="LabelsCtrl.labelSearch" type="text">
+			<i class="material-icons">search</i>
+		</div>
+		<div class="label-create grey lighten-4" ng-show="LabelsCtrl.labelSearch && LabelsCtrl.isFreeForCreate(LabelsCtrl.labelSearch)">
+			<a href="#">
+				<i class="material-icons">add</i>
+				<span>Create "<b ng-bind=LabelsCtrl.labelSearch></b>"</span>
+			</a>
+		</div>
+		<div>
+			<ul class="collection">
+				<li class="collection-item" ng-repeat="label in LabelsCtrl.labels | filter : LabelsCtrl.labelSearch">
+					<label-editable label=label></label-editable>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

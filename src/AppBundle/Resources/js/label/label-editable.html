@@ -1,0 +1,17 @@
+<div>
+	<input type="checkbox" id="label-id-{{LabelEditableCtrl.label.id}}"/>
+	<label for="label-id-{{LabelEditableCtrl.label.id}}" class="label-hidden">&nbsp;</label>
+	<label ng-hide="edit" class="label-name" ng-bind="LabelEditableCtrl.label.name"></label>
+	<input ng-show="edit" class="label-name" placeholder="Label name" ng-model="LabelEditableCtrl.label.name" type="text">
+	<span class="right label-actions">
+		<a class="label-action-edit grey-text text-lighten-3" ng-hide="edit" ng-click="edit=true" href="#">
+			<i class="material-icons">edit</i>
+		</a>
+		<a class="label-action-save green-text text-lighten-3" ng-show="edit" ng-click="edit=false" href="#">
+			<i class="material-icons">save</i>
+		</a>
+		<a class="label-action-delete red-text text-lighten-3" ng-show="edit" ng-click="edit=false" href="#">
+			<i class="material-icons">delete</i>
+		</a>
+	</span>
+</div>

@@ -1,17 +1,17 @@
 (function(){
 	angular.module('app')
-		.factory('NoteService', function($http)
+		.factory('LabelService', function($http)
 		{
 			return {
-				getNotes: getNotes,
-				saveNote: saveNote,
-				deleteNote: deleteNote,
-				createBlankNote: createBlankNote
+				getLabels: getLabels,
+				saveLabel: saveLabel,
+				deleteLabel: deleteLabel,
+				createBlankLabel: createBlankLabel
 			};
 
-			function getNotes()
+			function getLabels()
 			{
-				return $http.get('/note')
+				return $http.get('/label')
 					.then(function(response)
 					{
 						return response.data;
@@ -23,11 +23,11 @@
 				;
 			}
 
-			function saveNote(note)
+			function saveLabel(label)
 			{
-				if (note.id)
+				if (label.id)
 				{
-					return $http.put('/note/' + note.id, note)
+					return $http.put('/label/' + label.id, label)
 						.then(function(response)
 						{
 							return response.data;
@@ -40,7 +40,7 @@
 				}
 				else
 				{
-					return $http.post('/note', note)
+					return $http.post('/label', label)
 						.then(function(response)
 						{
 							return response.data;
@@ -53,12 +53,12 @@
 				}
 			}
 
-			function deleteNote(note)
+			function deleteLabel(label)
 			{
-				return $http.delete('/note/' + note.id);
+				return $http.delete('/label/' + Label.id);
 			}
 
-			function createBlankNote()
+			function createBlankLabel()
 			{
 				return {
 					title: "",
@@ -73,3 +73,4 @@
 		})
 	;
 })();
+
