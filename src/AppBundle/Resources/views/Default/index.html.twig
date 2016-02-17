@@ -10,6 +10,7 @@
     <script src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script>
     <script src="{{ asset('bower_components/Materialize/dist/js/materialize.min.js') }}"></script>
     <script src="{{ asset('bower_components/angular/angular.min.js') }}"></script>
+    <script src="{{ asset('bower_components/angular-ui-router/release/angular-ui-router.min.js') }}"></script>
 
     <script src="{{ asset('assets/app.js') }}"></script>
     <script src="{{ asset('assets/templates.js') }}"></script>
@@ -23,7 +24,14 @@
         <div class="content">
             <div class="row">
                 <div class="col s4 offset-s4">
-                    <note-new notes=notes></note-new>
+					<div ui-view>
+						<a ui-sref="new">
+							<div class="card">
+								<div class="card-content">Add note</div>
+							</div>
+						</a>
+					</div>
+                    
                 </div>
             </div>
             <div class="row">

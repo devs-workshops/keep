@@ -19,6 +19,7 @@
   "dependencies": {
     "Materialize": "materialize#~0.97.5",
     "angular": "~1.4.8",
-	"material-design-icons-iconfont": "~2.0.2"
+    "material-design-icons-iconfont": "~2.0.2",
+    "angular-ui-router": "~0.2.18"
   }
 }

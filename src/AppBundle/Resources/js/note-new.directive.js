@@ -12,21 +12,15 @@
 				controllerAs: 'NoteNewCtrl'
 			};
 
-			NoteNewController.$inject = ['$scope', 'NoteService'];
+			NoteNewController.$inject = ['$state', 'NoteService'];
 
-			function NoteNewController($scope, NoteService)
+			function NoteNewController($state, NoteService)
 			{
 				var vm = this;
 
-				vm.blankNote = null;
+				vm.blankNote = NoteService.createBlankNote();
 
-				vm.createNote = createNote;
 				vm.onSaved = onSaved;
-
-				function createNote()
-				{
-					vm.blankNote = NoteService.createBlankNote();
-				}
 
 				function onSaved(savedNote)
 				{
@@ -35,7 +29,7 @@
 						vm.notes.unshift(savedNote);
 					}
 
-					vm.blankNote = null;
+					$state.go('index');
 				}
 			}
 		})

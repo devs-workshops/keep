@@ -9,6 +9,7 @@ var DESTINATION = 'web/assets/';
 gulp.task('concat:js', function () {
     return gulp.src([
             JS_SOURCE_PATH + '*.module.js',
+            JS_SOURCE_PATH + '*.config.js',
             JS_SOURCE_PATH + '*.js'
         ])
         .pipe(concat('app.js'))
