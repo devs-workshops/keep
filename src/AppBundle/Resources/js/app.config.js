@@ -7,6 +7,9 @@
 			.state('index', {
 				url: "/"
 			})
+			.state('index.filter', {
+				url: "filter/:label"
+			})
 			.state('new', {
 				url: "/new",
 				template: "<note-new notes=notes></note-new>"

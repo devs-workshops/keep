@@ -62,7 +62,8 @@
 			{
 				return {
 					title: "",
-					content: ""
+					content: "",
+					labels: []
 				};
 			}
 

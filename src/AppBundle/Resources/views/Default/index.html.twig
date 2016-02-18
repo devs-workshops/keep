@@ -21,26 +21,31 @@
     <div ng-app="app" ng-controller="IndexController">
         <navigation></navigation>
 
-		<labels></labels>
-
-        <div class="content">
+        <div>
             <div class="row">
-                <div class="col s4 offset-s4">
-					<div ui-view>
-						<a ui-sref="new">
-							<div class="card">
-								<div class="card-content">Add note</div>
+                <div class="col s2">
+					<labels></labels>
+				</div>
+				<div class="col s10">
+					<div class="row">
+						<div class="col s4 offset-s4">
+							<div ui-view>
+								<a ui-sref="new">
+									<div class="card">
+										<div class="card-content">Add note</div>
+									</div>
+								</a>
 							</div>
-						</a>
+							
+						</div>
 					</div>
-                    
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s4" ng-repeat="note in notes">
-                    <note></note>
-                </div>
-            </div>
+					<div class="row">
+						<div class="col s4" ng-repeat="note in notes | label">
+							<note></note>
+						</div>
+					</div>
+				</div>
+			</div>
         </div>
     </div>
 {% endblock %}

@@ -3,7 +3,7 @@
 		.directive('noteNew', function()
 		{
 			return {
-				templateUrl: "note-new.html",
+				templateUrl: "note/new/note-new.html",
 				scope: true,
 				bindToController: {
 					notes: '=',

@@ -3,7 +3,7 @@
 		.directive('note', function()
 		{
 			return {
-				templateUrl: "note.html"
+				templateUrl: "note/note.html"
 			};
 		})
 	;

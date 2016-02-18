@@ -3,7 +3,7 @@
 		.directive('navigation', function()
 		{
 			return {
-				templateUrl: "navigation.html"
+				templateUrl: "navigation/navigation.html"
 			};
 		})
 	;
