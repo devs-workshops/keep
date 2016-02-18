@@ -7,7 +7,7 @@
 	function noteEditModalDirective($timeout, NoteService)
 	{
 		return {
-			templateUrl: "note/edit/note-edit-modal.html",
+			templateUrl: "note/edit/edit-modal.html",
 			link: linkFunc
 		};
 
