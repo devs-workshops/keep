@@ -11,7 +11,7 @@
 
 			function getLabels()
 			{
-				return $http.get('/label')
+				return $http.get('/note/label')
 					.then(function(response)
 					{
 						return response.data;
@@ -27,7 +27,7 @@
 			{
 				if (label.id)
 				{
-					return $http.put('/label/' + label.id, label)
+					return $http.put('/note/label/' + label.id, label)
 						.then(function(response)
 						{
 							return response.data;
@@ -40,7 +40,7 @@
 				}
 				else
 				{
-					return $http.post('/label', label)
+					return $http.post('/note/label', label)
 						.then(function(response)
 						{
 							return response.data;
@@ -55,7 +55,7 @@
 
 			function deleteLabel(label)
 			{
-				return $http.delete('/label/' + Label.id);
+				return $http.delete('/note/label/' + Label.id);
 			}
 
 			function createBlankLabel()
