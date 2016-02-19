@@ -10,7 +10,8 @@
 	angular.module('login')
 		.component('loginForm', Component);
 
-	function LoginFormController() {
+	function LoginFormController()
+	{
 		var ctrl = this;
 
 		ctrl.onSignIn = onSignIn;

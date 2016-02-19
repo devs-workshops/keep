@@ -3,23 +3,25 @@
 		<div class="card-content white-text">
 			<span class="card-title">Login</span>
 			<div class="row">
-				<form class="col s12">
+				<form class="col s12" name="form">
 					<div class="row">
 						<div class="input-field col s12">
-							<input ng-model="$ctrl.email" id="email" type="email" class="validate">
+							<input name="email" login-email ng-model-options="{debounce: 500}" ng-model="$ctrl.email" id="email" type="email" class="validate">
 							<label for="email">Email</label>
+							<span ng-show="form.email.$error.exist" class="red-text">wrong email</span>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
-							<input ng-model="$ctrl.password" id="password" type="password" class="validate">
+							<input login-password name="password" ng-model="$ctrl.password" id="password" type="password" class="validate">
 							<label for="password">Password</label>
+							<span ng-show="form.password.$error.weak" class="red-text">weak password</span>
 						</div>
 					</div>
 				</form>
 			</div>
 		<div class="card-action">
-			<a ng-click="$ctrl.onSignIn()" href="#">Sign in</a>
+			<a ng-class="{'grey-text': form.$invalid || form.$pristine}" ng-click="$ctrl.onSignIn()" href="#">Sign in</a>
 			<a ng-click="$ctrl.onClose()" href="#">Close</a>
 		</div>
 	</div>
