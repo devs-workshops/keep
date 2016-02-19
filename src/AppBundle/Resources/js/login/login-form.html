@@ -1,0 +1,26 @@
+<div>
+	<div class="card blue-grey darken-1">
+		<div class="card-content white-text">
+			<span class="card-title">Login</span>
+			<div class="row">
+				<form class="col s12">
+					<div class="row">
+						<div class="input-field col s12">
+							<input ng-model="$ctrl.email" id="email" type="email" class="validate">
+							<label for="email">Email</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<input ng-model="$ctrl.password" id="password" type="password" class="validate">
+							<label for="password">Password</label>
+						</div>
+					</div>
+				</form>
+			</div>
+		<div class="card-action">
+			<a ng-click="$ctrl.onSignIn()" href="#">Sign in</a>
+			<a ng-click="$ctrl.onClose()" href="#">Close</a>
+		</div>
+	</div>
+</div>
