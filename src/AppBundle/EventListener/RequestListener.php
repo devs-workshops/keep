@@ -11,7 +11,6 @@ class RequestListener
     public function onKernelRequest(GetResponseEvent $event)
     {
         $request = $event->getRequest();
-
         if ($this->isRequestJson($request))
         {
             $parameters = json_decode($request->getContent(),true);

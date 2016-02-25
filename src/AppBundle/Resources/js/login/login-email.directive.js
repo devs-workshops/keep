@@ -21,7 +21,7 @@
 				{
 					console.log('email validator');
 
-					if (Math.round(Math.random()))
+					if (true || Math.round(Math.random()))
 					{
 						defer.resolve();
 					}
@@ -29,7 +29,7 @@
 					{
 						defer.reject();
 					}
-				}, 1000);
+				}, 100);
 
 
 				return defer.promise;

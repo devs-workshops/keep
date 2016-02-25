@@ -35,7 +35,7 @@ security:
                 username_parameter: email
                 password_parameter: password
                 check_path: login_check
-                always_use_default_target_path: false
+                #always_use_default_target_path: false
                 default_target_path: login_success
                 failure_path: login_failure
                 failure_forward: true

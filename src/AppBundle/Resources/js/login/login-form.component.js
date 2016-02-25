@@ -26,10 +26,10 @@
 				"password": ctrl.password
 			};
 
-			//sendLoginRequest(payload);
-			// angular http will send data in the json format in request body
-			// security is handled earlier than convert handler
-			sendLoginRequestWithJquery(payload);
+			sendLoginRequest(payload).then(function(response){
+				console.log('login response', response.data);
+				alert(response.data);
+			});
 		}
 
 		function onClose() {
@@ -47,10 +47,7 @@
 		}
 
 		function sendLoginRequest(payload) {
-			var promise = $http.post('/login-check', payload);
-			promise.then(function(response){
-				console.log('login response', response.data);
-			});
+			return $http.post('/login-check', payload);
 		}
 	}
 

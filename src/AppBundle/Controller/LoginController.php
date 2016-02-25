@@ -20,14 +20,6 @@ class LoginController extends Controller
 	}
 
 	/**
-	 * @Route("/login-check", name="login_check")
-	 */
-	public function loginCheckAction()
-	{
-		return new JsonResponse(['Dummy action security will handle this']);
-	}
-
-	/**
 	 * @Route("/login-success", name="login_success")
 	 */
 	public function loginSuccessAction()
@@ -40,13 +32,21 @@ class LoginController extends Controller
 	 */
 	public function loginFailureAction()
 	{
-		return new JsonResponse(['login failure, we should return error msg to front-end']);
+		return new JsonResponse(['Wrong email/password!']);
 	}
 
 	/**
 	 * @Route("/logout", name="logout")
 	 */
 	public function logoutAction()
+	{
+		return new JsonResponse(['Dummy action security will handle this']);
+	}
+
+	/**
+	 * @Route("/login-check", name="login_check")
+	 */
+	public function loginCheckAction()
 	{
 		return new JsonResponse(['Dummy action security will handle this']);
 	}
