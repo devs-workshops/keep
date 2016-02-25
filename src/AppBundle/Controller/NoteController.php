@@ -11,6 +11,7 @@ use Doctrine\ORM\EntityManager;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use AppBundle\Entity\Note;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 
 class NoteController extends Controller
@@ -31,6 +32,7 @@ class NoteController extends Controller
     /**
      * @Route("/note", name="note_create")
      * @Method("POST")
+     * @Security("has_role('ROLE_USER')")
      */
     public function createAction(Request $request)
     {
@@ -50,6 +52,7 @@ class NoteController extends Controller
     /**
      * @Route("/note/{id}", name="note_update")
      * @Method("PUT")
+     * @Security("has_role('ROLE_USER')")
      */
     public function updateAction(Request $request, Note $note)
     {
@@ -69,6 +72,7 @@ class NoteController extends Controller
     /**
      * @Route("/note/{id}", name="note_delete")
      * @Method("DELETE")
+     * @Security("has_role('ROLE_USER')")
      */
     public function deleteAction(Note $note)
     {

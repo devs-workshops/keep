@@ -10,7 +10,9 @@
 	angular.module('login')
 		.component('loginForm', Component);
 
-	function LoginFormController()
+	LoginFormController.$inject = ['$http']
+
+	function LoginFormController($http)
 	{
 		var ctrl = this;
 
@@ -19,8 +21,15 @@
 
 		function onSignIn()
 		{
-			console.log('Email', ctrl.email);	
-			console.log('Password', ctrl.password);	
+			var payload = {
+				"email": ctrl.email,
+				"password": ctrl.password
+			};
+
+			//sendLoginRequest(payload);
+			// angular http will send data in the json format in request body
+			// security is handled earlier than convert handler
+			sendLoginRequestWithJquery(payload);
 		}
 
 		function onClose() {
@@ -28,6 +37,20 @@
 			{
 				ctrl.onCloseCallback();	
 			}
+		}
+
+		function sendLoginRequestWithJquery(payload) {
+			$.post('/login-check', payload, function(response){
+				console.log('jQuery', response);
+				alert(response);
+			});
+		}
+
+		function sendLoginRequest(payload) {
+			var promise = $http.post('/login-check', payload);
+			promise.then(function(response){
+				console.log('login response', response.data);
+			});
 		}
 	}
 
